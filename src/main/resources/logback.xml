@@ -1,0 +1,14 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/structured-console-appender.xml"/>
+
+    <appender name="GELF" class="de.siegmar.logbackgelf.GelfUdpAppender">
+        <graylogHost>localhost</graylogHost>
+        <graylogPort>12201</graylogPort>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="GELF"/>
+    </root>
+</configuration>
