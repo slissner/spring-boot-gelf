@@ -18,5 +18,11 @@ class ExampleLogger implements CommandLineRunner {
         .addKeyValue("userId", "1")
         .addKeyValue("testkey_testmessage", "test")
         .log();
+
+    try {
+      throw new RuntimeException("Boom");
+    } catch (final RuntimeException exception) {
+      LOGGER.atError().setCause(exception).setMessage("Test exception").log();
+    }
   }
 }

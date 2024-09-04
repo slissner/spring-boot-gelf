@@ -5,6 +5,11 @@
     <appender name="GELF" class="de.siegmar.logbackgelf.GelfUdpAppender">
         <graylogHost>localhost</graylogHost>
         <graylogPort>12201</graylogPort>
+
+        <encoder class="org.springframework.boot.logging.logback.StructuredLogEncoder">
+            <format>${CONSOLE_LOG_STRUCTURED_FORMAT}</format>
+            <charset>${CONSOLE_LOG_CHARSET}</charset>
+        </encoder>
     </appender>
 
     <root level="info">
